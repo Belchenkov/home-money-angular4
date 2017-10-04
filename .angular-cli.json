@@ -19,6 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "wfm",
       "styles": [
+        "./assets/vendor.css",
+        "./assets/theme.css",
         "styles.scss"
       ],
       "scripts": [],
