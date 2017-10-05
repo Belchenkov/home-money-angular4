@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       .subscribe((params: Params) => {
         if (params['nowCanLogin']) {
           this.showMessage({
-            text: 'Спасибо за регистрацию! Теперь можете войти в систему',
+            text: `Теперь можете войти в систему`,
             type: 'success'
           });
         }

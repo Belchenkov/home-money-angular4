@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 import { UsersService } from "../../shared/services/users.service";
-import {User} from "../../shared/models/user.model";
+import { User } from "../../shared/models/user.model";
 
 @Component({
   selector: 'wfm-registration',
@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),
       'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'name': new FormControl(null, [Validators.required]),
       'agree': new FormControl(false, [Validators.requiredTrue])
@@ -36,10 +36,23 @@ export class RegistrationComponent implements OnInit {
       .subscribe(() => {
         this.router.navigate(['login'], {
           queryParams: {
-            nowCanLoggin: true
+            nowCanLogin: true
           }
         });
       });
+  }
+
+  forbiddenEmails(control: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getUserByEmail(control.value)
+        .subscribe((user: User) => {
+            if (user) {
+              resolve({forbiddenEmail: true});
+            } else {
+              resolve(null);
+            }
+        });
+    });
   }
 
 }

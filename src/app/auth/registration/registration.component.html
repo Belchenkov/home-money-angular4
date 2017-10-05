@@ -19,6 +19,7 @@
     >
       <span *ngIf="form.get('email')['errors']['required']">Email не может быть пустым</span><br>
       <span *ngIf="form.get('email')['errors']['email']">Введите корректный Email</span>
+      <span *ngIf="form.get('email')['errors']['forbiddenEmail']">Введите Email уже занят</span>
     </span>
   </div>
   <div
