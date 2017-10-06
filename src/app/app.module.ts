@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 // Services
 import { UsersService } from "./shared/services/users.service";
 import { AuthService } from "./shared/services/auth.service";
+import { SystemModule } from "./system/system.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthService } from "./shared/services/auth.service";
     SharedModule,
     HttpModule,
     AuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SystemModule
   ],
   providers: [UsersService, AuthService],
   bootstrap: [AppComponent]
