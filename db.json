@@ -11,30 +11,6 @@
       "password": "11111111",
       "name": "Manager",
       "id": 2
-    },
-    {
-      "email": "wfm@1mail.ru",
-      "password": "11111111",
-      "name": "wfm",
-      "id": 3
-    },
-    {
-      "email": "employ@gmail.com",
-      "password": "11111111",
-      "name": "ertertert",
-      "id": 4
-    },
-    {
-      "email": "employ1@gmail.com",
-      "password": "asdfasdfasdfasdf",
-      "name": "asdfasdfa",
-      "id": 5
-    },
-    {
-      "email": "ingames1@ingames.world",
-      "password": "1111111111111111111",
-      "name": "dfasdfasdf",
-      "id": 6
     }
   ],
   "bill": {
