@@ -11,6 +11,7 @@ import { RecordsPageComponent } from './records-page/records-page.component';
 import { SidebarComponent } from './shared/componenents/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/componenents/header/header.component';
 import { DropdownDirective } from "./shared/directives/dropdown.directive";
+import { BillService } from "./shared/services/bill.service";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DropdownDirective } from "./shared/directives/dropdown.directive";
     CommonModule,
     SharedModule,
     SystemRoutingModule,
-  ]
+  ],
+  providers: [BillService]
 })
 export class SystemModule {}
