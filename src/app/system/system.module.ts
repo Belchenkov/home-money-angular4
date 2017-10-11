@@ -12,6 +12,8 @@ import { SidebarComponent } from './shared/componenents/sidebar/sidebar.componen
 import { HeaderComponent } from './shared/componenents/header/header.component';
 import { DropdownDirective } from "./shared/directives/dropdown.directive";
 import { BillService } from "./shared/services/bill.service";
+import { BillCardComponent } from './bill-page/bill-card/bill-card.component';
+import { CurrencyCardComponent } from './bill-page/currency-card/currency-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { BillService } from "./shared/services/bill.service";
     RecordsPageComponent,
     SidebarComponent,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    BillCardComponent,
+    CurrencyCardComponent
   ],
   imports: [
     CommonModule,
