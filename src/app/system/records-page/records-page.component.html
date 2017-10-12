@@ -4,18 +4,23 @@
     </h3>
   </div>
 
-  <section class="section">
+  <section class="section text-center" *ngIf="!isLoaded">Loading ...</section>
+
+  <section class="section" *ngIf="isLoaded">
     <div class="row">
       <div class="col-md-6">
           <wfm-add-event></wfm-add-event>
       </div>
       <div class="col-md-6">
-        <wfm-add-category></wfm-add-category>
+        <wfm-add-category (onCategoryAdd)="newCategoryAdded($event)"></wfm-add-category>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <wfm-edit-category></wfm-edit-category>
+        <wfm-edit-category
+          [categories]="categories"
+          (onCategoryEdit)="categoryWasEdited($event)"
+        ></wfm-edit-category>
       </div>
     </div>
   </section>

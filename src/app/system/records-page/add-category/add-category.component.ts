@@ -28,7 +28,6 @@ export class AddCategoryComponent {
 
     const category = new Category(name, capacity);
 
-
     this.categoryService.addCategory(category)
       .subscribe((category: Category) => {
         form.reset();
