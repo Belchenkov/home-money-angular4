@@ -34,9 +34,14 @@
       "capacity": 7000
     },
     {
-      "name": "Новая12",
-      "capacity": 1222212,
+      "name": "Спорт",
+      "capacity": 5000,
       "id": 4
+    },
+    {
+      "name": "IT-курсы",
+      "capacity": 3000,
+      "id": 5
     }
   ],
   "events": [
