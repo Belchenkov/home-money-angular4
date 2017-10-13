@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { UsersService } from "../../shared/services/users.service";
-import { User } from "../../shared/models/user.model";
-import { Message } from "../../shared/models/message.model";
-import { AuthService } from "../../shared/services/auth.service";
+import { UsersService } from '../../shared/services/users.service';
+import { User } from '../../shared/models/user.model';
+import { Message } from '../../shared/models/message.model';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'wfm-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
   message: Message;
 
-  constructor(
-    private usersService: UsersService,
-    private authService: AuthService,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) { }
+  constructor(private usersService: UsersService,
+              private authService: AuthService,
+              private router: Router,
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.message = new Message('danger', '');
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
       .subscribe((params: Params) => {
         if (params['nowCanLogin']) {
           this.showMessage({
-            text: `Теперь можете войти в систему`,
+            text: 'Теперь вы можете зайти в систему',
             type: 'success'
           });
         }
@@ -45,16 +44,17 @@ export class LoginComponent implements OnInit {
 
   private showMessage(message: Message) {
     this.message = message;
+
     window.setTimeout(() => {
       this.message.text = '';
     }, 5000);
   }
 
   onSubmit() {
-   const formData = this.form.value;
+    const formData = this.form.value;
 
-   this.usersService.getUserByEmail(formData.email)
-     .subscribe((user: User) => {
+    this.usersService.getUserByEmail(formData.email)
+      .subscribe((user: User) => {
         if (user) {
           if (user.password === formData.password) {
             this.message.text = '';
@@ -63,17 +63,17 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/system', 'bill']);
           } else {
             this.showMessage({
-              text: 'Пароль неверен!',
+              text: 'Пароль не верный',
               type: 'danger'
             });
           }
         } else {
           this.showMessage({
-            text: 'Такого пользователя не существует!',
+            text: 'Такого пользователя не существует',
             type: 'danger'
           });
         }
-     });
+      });
   }
 
 }

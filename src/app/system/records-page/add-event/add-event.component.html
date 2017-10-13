@@ -8,7 +8,9 @@
     <div
       class="alert alert-{{message.type}}"
       *ngIf="message.text"
-    >{{ message.text }}</div>
+    >
+      {{message.text}}
+    </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
         <label class="control-label" for="category">Выберите категорию</label>
@@ -22,7 +24,9 @@
           <option
             *ngFor="let c of categories"
             [value]="c.id"
-          >{{ c.name }}</option>
+          >
+            {{c.name}}
+          </option>
         </select>
       </div>
       <div class="form-group">
@@ -37,7 +41,7 @@
               required
               [ngModel]="'outcome'"
             >
-            <span>{{ t.label }}</span>
+            <span>{{t.label}}</span>
           </label>
         </div>
       </div>
@@ -48,18 +52,20 @@
         <label class="control-label" for="amount">Введите сумму</label>
         <input
           type="number"
-          name="amount"
           id="amount"
+          class="form-control"
+          name="amount"
           [ngModel]="1"
           min="1"
-          class="form-control"
           #amount="ngModel"
           required
         >
         <span
           class="form-help-text"
           *ngIf="amount.invalid && amount.touched"
-        >Поле обязательно для заполнения</span>
+        >
+          Поле обязательно для заполнения
+        </span>
       </div>
       <div
         class="form-group"
@@ -68,17 +74,19 @@
         <label class="control-label" for="description">Введите описание</label>
         <input
           type="text"
-          name="description"
           id="description"
-          ngModel
           class="form-control"
+          name="description"
+          ngModel
           #description="ngModel"
           required
         >
         <span
           class="form-help-text"
           *ngIf="description.invalid && description.touched"
-        >Поле обязательно для заполнения</span>
+        >
+          Поле обязательно для заполнения
+        </span>
       </div>
       <button
         type="submit"

@@ -1,4 +1,4 @@
-export class Category  {
+export class Category {
   constructor(
     public name: string,
     public capacity: number,

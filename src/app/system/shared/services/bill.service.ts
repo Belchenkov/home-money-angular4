@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
-import { Observable } from "rxjs/Observable";
-import { Bill } from "../models/bill.model";
-import { BaseApi } from "../../../shared/core/base-api";
+import { Bill } from '../models/bill.model';
+import { BaseApi } from '../../../shared/core/base-api';
 
 @Injectable()
 export class BillService extends BaseApi {
@@ -23,4 +23,5 @@ export class BillService extends BaseApi {
     return this.http.get(`http://api.fixer.io/latest?base=${base}`)
       .map((response: Response) => response.json());
   }
+
 }
