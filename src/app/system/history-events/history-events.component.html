@@ -37,30 +37,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>44 444</td>
-              <td>12.12.2017</td>
-              <td>Товары</td>
-              <td>
-                <span class="label label-danger">Расход</span>
-              </td>
-              <td class="text-lg-center">
-                <a href="#" class="btn btn-primary-outline">Открыть</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>33 333</td>
-              <td>12.12.2017</td>
-              <td>Отдых</td>
-              <td>
-                <span class="label label-success">Доход</span>
-              </td>
-              <td class="text-lg-center">
-                <a href="#" class="btn btn-primary-outline">Открыть</a>
-              </td>
-            </tr>
+              <tr *ngFor="let e of events; let idx = index">
+                <th scope="row">{{ idx + 1 }}</th>
+                <td>{{ e.amount | number: '1.2' }}</td>
+                <td>{{ e.date | wfmMoment: 'DD.MM.YYYY HH:mm:ss'}}</td>
+                <td>{{ e.catName}}</td>
+                <td>
+                  <span [ngClass]="getEventClass(e)">
+                    <span *ngIf="e.type === 'income'">Доход</span>
+                    <span *ngIf="e.type === 'outcome'">Расход</span>
+                  </span>
+                </td>
+                <td class="text-lg-center">
+                  <a [routerLink]="['/system/history', e.id]" class="btn btn-primary-outline">Открыть</a>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
