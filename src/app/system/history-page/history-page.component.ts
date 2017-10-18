@@ -32,7 +32,6 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     ).subscribe((data: [Category[], WFMEvent[]]) => {
       this.categories = data[0];
       this.events = data[1];
-
       this.isLoaded = true;
     });
   }
