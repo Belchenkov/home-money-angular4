@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "json-server --watch db.json --port 3000",
+    "server": "json-server --watch db.json --port 3005",
     "dev": "concurrently --kill-others \"npm run start\" \"npm run server\""
   },
   "private": true,
