@@ -11,6 +11,12 @@
       "password": "11111111",
       "name": "Manager",
       "id": 2
+    },
+    {
+      "email": "belchenkov@yksoft.ru",
+      "password": "12qwasZX",
+      "name": "Бельченков Алексей",
+      "id": 3
     }
   ],
   "bill": {
